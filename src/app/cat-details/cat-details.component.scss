@@ -1,0 +1,36 @@
+@use '../../styles';
+
+.breadcrumbs li {
+    display: inline;
+
+    &:not(:first-of-type) {
+        &:before {
+            padding: 8px;
+            content: "/\00a0"
+        }
+    }
+}
+
+.cat-details-main {
+    display: flex;
+    column-gap: 30px;
+    row-gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 40px;
+
+    .cat-details-info {
+        max-width: 400px;
+    }
+
+    .cat-details-img {
+        max-width: 400px;
+        width: 100%;
+    }
+}
+
+.border {
+    border: 2px solid styles.$gold;
+    width: 70%;
+    margin: 40px auto;
+}

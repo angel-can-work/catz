@@ -1,0 +1,14 @@
+<ul class="breadcrumbs">
+    <li><a href="#">Home</a></li>
+    <li>{{catDetails.name}}</li>
+</ul>
+<main *ngIf="!!catDetailsLoaded" class="cat-details-main">
+    <img class="cat-details-img" [src]="catDetails.image" [alt]="catDetails.name + ' Image'">
+    <section class="cat-details-info">
+        <h1 class="cat-details-name">{{catDetails.name}}</h1>
+        <p class="cat-details-description">{{catDetails.description}}</p>
+        <p class="cat-details-temperament">Temperament: {{catDetails.temperament}}</p>
+        <a [href]="catDetails.wikipedia_url" class="cat-details-link" target="_blank">Wikipedia, please!</a>
+    </section>
+</main>
+<div class="border"></div>

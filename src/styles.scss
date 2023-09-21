@@ -1,0 +1,54 @@
+// Global Styles
+
+$dark-purple: #5c3c64;
+$gold: #ffce95;
+$cinnamon: #904617;
+$apple: #9d2511;
+$lavendar: rgb(182, 193, 233);
+
+* {
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    &:focus-visible {
+        outline: 2px solid $gold;
+    }
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h1,
+h2 {
+    margin: unset;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+img {
+    height: fit-content;
+    margin: 0 16px;
+}
+
+button,
+input,
+ul {
+    margin: 16px 0;
+    border: unset;
+    padding: unset;
+    border-radius: 2px;
+
+    &:focus-visible {
+        border: unset;
+        outline: unset;
+    }
+}
