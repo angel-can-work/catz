@@ -8,7 +8,7 @@
         'header-search header-search';
     position: sticky;
     top: 0;
-    background: styles.$lavendar;
+    background: white;
     margin: 0 -20px;
     padding: 020px;
 
@@ -25,6 +25,10 @@
 
     .header-title {
         grid-area: header-title;
+
+        #cats {
+            font-size: 40px;
+        }
     }
 
     .header-filters {

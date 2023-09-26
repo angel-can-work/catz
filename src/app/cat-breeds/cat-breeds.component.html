@@ -1,7 +1,11 @@
 <main *ngIf="!!catBreedsLoaded" class="main">
     <section class="header">
         <button class="reload-button" tabindex="0" (click)="refresh()"> Reload </button>
-        <h1 id="cats" class="header-title">Cats?!</h1>
+        <section class="header-title">
+            <h1 id="cats">Cats?!</h1>
+            <p>A simple directory of cats.</p>
+        </section>
+        
         <section class="header-filters">
             <span *ngFor="let filter of filters">
                 <input class="filter" [id]="filter.name" type="checkbox" [(ngModel)]="filter.isSelected"
