@@ -44,10 +44,7 @@ export class CatBreedsComponent implements OnInit {
   filterBreeds() {
     this.displayBreeds = this.catBreeds;
     const selectedFilters = this.filters.filter(filter => !filter.isSelected);
+    // change filter to only show ones from selected
     selectedFilters.forEach(filter => this.displayBreeds = this.displayBreeds.filter(breed => breed[filter.name] === 0));
-  }
-
-  refresh() {
-    this.getCatBreeds(true);
   }
 }

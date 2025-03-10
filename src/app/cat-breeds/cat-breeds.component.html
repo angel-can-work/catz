@@ -1,38 +1,33 @@
 <main *ngIf="!!catBreedsLoaded" class="main">
-    <section class="header">
-        <button class="reload-button" tabindex="0" (click)="refresh()"> Reload </button>
-        <section class="header-title">
-            <h1 id="cats">Cats?!</h1>
-            <p>A simple directory of cats.</p>
-        </section>
-        
-        <section class="header-filters">
-            <span *ngFor="let filter of filters">
-                <input class="filter" [id]="filter.name" type="checkbox" [(ngModel)]="filter.isSelected"
-                    (change)="filterBreeds()">
-                <label class="filter-label" tabindex="0" [for]="filter.name">{{filter.name}}</label>
-            </span>
-        </section>
-        <input aria-labelledby="cats" type="text" placeholder="Search by Breed, ex. Abyssinian " class="header-search"
-            [(ngModel)]="searchTerm">
+  <section class="header">
+    <section class="header-filters">
+      <span *ngFor="let filter of filters">
+        <input class="filter" [id]="filter.name" type="checkbox" [(ngModel)]="filter.isSelected"
+          (change)="filterBreeds()">
+        <label class="filter-label" tabindex="0" [for]="filter.name">{{filter.name | titlecase}}</label>
+      </span>
     </section>
+    <input aria-labelledby="cats" type="text" placeholder="Search by Breed, ex. Abyssinian " class="header-search"
+      [(ngModel)]="searchTerm">
+  </section>
 
-    <ng-container *ngIf="displayBreeds | searchFilter: searchTerm as results">
-        <section class="cat-results">
-            <div *ngFor="let breed of results" class="cat-card">
-                <img class="cat-image" [src]="[breed.image]" alt="Cat Image Unavailable">
-                <h2>{{breed.name}}</h2>
-                <p>{{breed.privacy}}</p>
-                <a *ngIf="breed.privacy ==='Public'; else privacyBlock"
-                    [routerLink]="['/details/' + breed.id]">Details</a>
-                <ng-template #privacyBlock>Details Unavailable</ng-template>
-                <section>
-                    <p class="hypo-tag" *ngIf="!!breed.hypoallergenic">Hypo-allgergenic</p>
-                    <p class="rare-tag" *ngIf="!!breed.rare">Rare</p>
-                    <p class="hair-tag" *ngIf="!!breed.hairless">Hairless</p>
-                </section>
-            </div>
-            <p *ngIf="results.length < 1">No Results</p>
+  <!-- Add loading image -->
+  <ng-container *ngIf="displayBreeds | searchFilter: searchTerm as results">
+    <section class="cat-results">
+      <div *ngFor="let breed of results" class="cat-card">
+        <img class="cat-image" [src]="[breed.image]" alt="" onerror="this.src = '../../assets/images/Cat.png'"
+          loading="lazy">
+        <h2>{{breed.name}}</h2>
+        <a *ngIf="breed.privacy ==='Public'; else privacyBlock" [routerLink]="['/details/' + breed.id]">Details</a>
+        <ng-template #privacyBlock>Details Unavailable</ng-template>
+        <section>
+          <p class="hypo-tag" *ngIf="!!breed.hypoallergenic">Hypo-allgergenic</p>
+          <p class="rare-tag" *ngIf="!!breed.rare">Rare</p>
+          <p class="hair-tag" *ngIf="!!breed.hairless">Hairless</p>
         </section>
-    </ng-container>
+      </div>
+      <p *ngIf="results.length < 1">No Results</p>
+    </section>
+  </ng-container>
+  <!-- Add message for if breeds do not load -->
 </main>

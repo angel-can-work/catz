@@ -36,7 +36,7 @@ export class CatsService {
 
   private mapData(data: any[]) {
     data.forEach((item, index) => {
-        item.privacy = index % 2 === 0 ? 'Private' : 'Public';
+      item.privacy = 'Public';
         item.image = `${this.catImageUrl}${item.reference_image_id}.jpg`;
       });
       return data;

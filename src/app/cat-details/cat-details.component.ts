@@ -30,4 +30,5 @@ export class CatDetailsComponent implements OnInit {
         }
       });
   }
+
 }

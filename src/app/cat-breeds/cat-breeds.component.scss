@@ -10,7 +10,8 @@
     top: 0;
     background: white;
     margin: 0 -20px;
-    padding: 020px;
+    padding: 20px;
+    border-bottom: 1px solid black;
 
 
     .reload-button {
@@ -61,7 +62,7 @@
 
     .cat-card {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         column-gap: 20px;
         align-items: center;
         border-bottom: 2px solid styles.$gold;
