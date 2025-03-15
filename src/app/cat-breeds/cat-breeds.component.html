@@ -2,28 +2,53 @@
   <section class="header">
     <section class="header-filters">
       <span *ngFor="let filter of filters">
-        <input class="filter" [id]="filter.name" type="checkbox" [(ngModel)]="filter.isSelected"
-          (change)="filterBreeds()">
-        <label class="filter-label" tabindex="0" [for]="filter.name">{{filter.name | titlecase}}</label>
+        <input
+          class="filter"
+          [id]="filter.name"
+          type="checkbox"
+          [(ngModel)]="filter.isSelected"
+          (change)="filterBreeds()"
+        />
+        <label class="filter-label" tabindex="0" [for]="filter.name">{{
+          filter.name | titlecase
+        }}</label>
       </span>
     </section>
-    <input aria-labelledby="cats" type="text" placeholder="Search by Breed, ex. Abyssinian " class="header-search"
-      [(ngModel)]="searchTerm">
+    <input
+      aria-labelledby="cats"
+      type="text"
+      placeholder="Search by Breed, ex. Abyssinian "
+      class="header-search"
+      [(ngModel)]="searchTerm"
+    />
   </section>
 
   <!-- Add loading image -->
-  <ng-container *ngIf="displayBreeds | searchFilter: searchTerm as results">
+  <ng-container *ngIf="displayBreeds | searchFilter : searchTerm as results">
     <section class="cat-results">
       <div *ngFor="let breed of results" class="cat-card">
-        <img class="cat-image" [src]="[breed.image]" alt="" onerror="this.src = '../../assets/images/Cat.png'"
-          loading="lazy">
-        <h2>{{breed.name}}</h2>
-        <a *ngIf="breed.privacy ==='Public'; else privacyBlock" [routerLink]="['/details/' + breed.id]">Details</a>
-        <ng-template #privacyBlock>Details Unavailable</ng-template>
-        <section>
-          <p class="hypo-tag" *ngIf="!!breed.hypoallergenic">Hypo-allgergenic</p>
-          <p class="rare-tag" *ngIf="!!breed.rare">Rare</p>
-          <p class="hair-tag" *ngIf="!!breed.hairless">Hairless</p>
+        <img
+          class="cat-image"
+          [src]="breed.imageUrl"
+          alt=""
+          onerror="this.src = '../../assets/images/Cat.png'"
+          loading="lazy"
+        />
+        <section class="name-and-link">
+          <h2>{{ breed.name }}</h2>
+          <a
+            *ngIf="breed.privacy === 'Public'; else privacyBlock"
+            [routerLink]="['/details/' + breed.id]"
+            >Details</a
+          >
+          <ng-template #privacyBlock>Details Unavailable</ng-template>
+          <section class="tags">
+            <p class="filter-tag hypo-tag" *ngIf="!!breed.hypoallergenic">
+              Hypo-allgergenic
+            </p>
+            <p class="filter-tag rare-tag" *ngIf="!!breed.rare">Rare</p>
+            <p class="filter-tag hair-tag" *ngIf="!!breed.hairless">Hairless</p>
+          </section>
         </section>
       </div>
       <p *ngIf="results.length < 1">No Results</p>
