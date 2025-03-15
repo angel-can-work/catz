@@ -1,8 +1,7 @@
 <main *ngIf="!!catBreedsLoaded" class="main">
-
   <section class="header">
     <section class="header-filters">
-      <img src="/assets/images/hiding-cat.png" alt="" class="header-image">
+      <img src="/assets/images/hiding-cat.png" alt="" class="header-image" />
       <span *ngFor="let filter of filters">
         <input
           class="filter checkbox"
@@ -26,34 +25,34 @@
     <section class="autoscroll">
       <app-scroll [enableScrollToBottom]="false"></app-scroll>
     </section>
-
   </section>
 
   <!-- Add loading image -->
   <ng-container *ngIf="displayBreeds | searchFilter : searchTerm as results">
     <section class="cat-results">
       <div *ngFor="let breed of results" class="cat-card">
-        <img
-          class="cat-image"
-          [src]="breed.imageUrl | safe : 'url'"
-          alt=""
-          onerror="this.src = '../../assets/images/Cat.png'"
-          loading="lazy"
-        />
-        <div class="border"></div>
-        <section class="name-and-link">
-          <h3>{{ breed.name }}</h3>
-          <a [routerLink]="['/details/' + breed.id]">Details</a>
-          <section class="tags">
-            <p
-              *ngFor="let filter of breed.filters"
-              class="filter-tag"
-              [ngClass]="filter.class"
-            >
-              {{ filter.name }}
-            </p>
+        <a [routerLink]="['/details/' + breed.id]" class="cat-card-container">
+          <img
+            class="cat-image"
+            [src]="breed.imageUrl | safe : 'url'"
+            alt=""
+            onerror="this.src = '../../assets/images/Cat.png'"
+            loading="lazy"
+          />
+          <div class="border"></div>
+          <section class="name-and-link">
+            <h3>{{ breed.name }}</h3>
+            <section class="tags">
+              <p
+                *ngFor="let filter of breed.filters"
+                class="filter-tag"
+                [ngClass]="filter.class"
+              >
+                {{ filter.name }}
+              </p>
+            </section>
           </section>
-        </section>
+        </a>
       </div>
       <p *ngIf="results.length < 1">No Results</p>
     </section>

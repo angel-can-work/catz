@@ -11,18 +11,8 @@
   background: #dfdfdf;
   margin: 0 -20px;
   padding: 48px 20px 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid var(--border);
   z-index: 1;
-
-  .reload-button {
-    grid-area: reload-button;
-    width: fit-content;
-    justify-self: end;
-    margin-top: 20px;
-    background: styles.$dark-purple;
-    color: white;
-    padding: 8px;
-  }
 
   .header-title {
     grid-area: header-title;
@@ -48,13 +38,13 @@
   .header-search {
     grid-area: header-search;
     padding: 8px 16px;
-    border: 2px solid #282929;
+    border: 2px solid var(--border);
     border-radius: 4px;
-    box-shadow: 0 4px 8px #888;
+    box-shadow: 0 4px 8px var(--alt-box-shadow);
 
     &:focus-visible {
-      border: 2px solid #282929;
-      outline: 6px solid #6c92a0;
+      border: 2px solid var(--chromophobic-black);
+      outline: 6px solid var(--alt-outline);
     }
   }
 
@@ -66,33 +56,35 @@
 
 .cat-results {
   display: flex;
-  // grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   margin-top: 20px;
   flex-wrap: wrap;
   justify-content: space-evenly;
 
   .cat-card {
-    display: grid;
     padding: 18px;
-    border: 2px solid #282929;
+    border: 2px solid var(--border);
     background-color: white;
     border-radius: 4px;
+    width: 25%;
+    min-width: 250px;
+    box-shadow: 0 4px 8px var(--alt-accent);
+  }
+
+  .cat-card-container {
+    display: grid;
     justify-content: center;
     text-align: center;
     grid-template-rows: 3fr 0.5fr 1fr;
     min-height: 300px;
     position: relative;
-    box-shadow: 0 4px 8px #c07b74;
-    width: 25%;
-    min-width: 250px;
     column-gap: 16px;
   }
 
   .cat-image {
     width: 100%;
     margin: auto;
-    border: 1px solid gray;
+    border: 2px solid var(--alt-border);
     border-radius: 4px;
     max-height: 200px;
   }
@@ -119,24 +111,19 @@
     text-align: center;
     width: fit-content;
     border-radius: 4px;
-    box-shadow: 0 4px 8px #888;
+    box-shadow: 0 4px 8px var(--alt-border);
   }
 
   .hypo-tag {
-    // background-color: styles.$apple;
-    background-color: #282929;
+    background-color: var(--alt-bg);
   }
 
   .rare-tag {
-    // background-color: styles.$cinnamon;
-    // background-color: #6c92a0;
-    background-color: #587783;
+    background-color: var(--accent);
   }
 
   .hair-tag {
-    // background-color: styles.$dark-purple;
-    // background-color: #c07b74;
-    background-color: #b1564d;
+    background-color: var(--alt-accent);
   }
 
   .hypo-tag,
@@ -154,7 +141,7 @@
 
 .border {
   position: relative;
-  border-bottom: 1px solid #282929;
+  border-bottom: 2px solid var(--alt-bg);
   width: 70%;
   margin: 0 auto;
 }

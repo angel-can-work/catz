@@ -46,14 +46,14 @@ export class CatsService {
         description: cat.description,
         temperament: cat.temperament,
         wikipedia_url: cat.wikipedia_url,
-        origin: cat.origin
+        origin: cat.origin,
+        vca_url: cat.vcahospitals_url
       };
     });
   }
 
   private mapFilters(cat: any) {
     return this.filters.filter((filter) => !!cat[filter.name]);
-
   }
 
 }

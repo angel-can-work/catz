@@ -4,20 +4,35 @@
 
 :root {
   // colors
-  --blue: #5f7f8c;
+  --wave-jumper: #587783;
   --chromophobic-black: #282929;
+  --kingly-cloud: #dfdfdf;
+  --argent: #888;
+  --elephant: #a8a9a9;
+  --antique-pink: #c07b74;
 }
 
-$dark-purple: #5c3c64;
-$gold: #ffce95;
-$cinnamon: #904617;
-$apple: #9d2511;
-$lavendar: rgb(182, 193, 233);
-$blue: #5f7f8c;
-
 :root {
+  --bg: var(--kingly-cloud);
+  --alt-bg: var(--chromophobic-black);
+
   --primary-font-color: var(--chromophobic-black);
-  --accent-font-color: var(--blue);
+
+  --form-outline: var(--wave-jumper);
+  --alt-outline: var(--antique-pink);
+
+  --box-shadow: var(--wave-jumper);
+  --alt-box-shadow: var(--argent);
+
+  --text-shadow: var(--elephant);
+  --alt-text-shadow: var(--wave-jumper);
+
+  --border: var(--chromophobic-black);
+  --alt-border: var(--argent);
+
+  --accent: var(--wave-jumper);
+  --alt-accent: var(--antique-pink);
+
 }
 
 * {
@@ -25,7 +40,7 @@ $blue: #5f7f8c;
   font-family: "Poppins", sans-serif;
 
   &:focus-visible {
-    outline: 2px solid #6c92a0;
+    outline: 2px solid var(--form-outline);
   }
 }
 
@@ -33,7 +48,7 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #dfdfdf;
+  background-color: var(--bg);
   color: var(--primary-font-color);
 }
 
@@ -48,7 +63,7 @@ h1,
 h2 {
   margin: unset;
   font-weight: 600;
-  background-color: #666666;
+  background-color: var(--alt-border);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -57,17 +72,16 @@ h2 {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 h3 {
-  color: #282929;
   color: var(--primary-font-color);
-  text-shadow: 0 1px 3px #888;
+  text-shadow: 0 1px 3px var(--alt-text-shadow);
   font-size: 20px;
 }
 
@@ -77,7 +91,7 @@ p {
 
 img {
   margin: 0 16px;
-  box-shadow: 0 4px 8px #6c92a0;
+  box-shadow: 0 4px 8px var(--box-shadow);
 }
 
 button,
@@ -95,22 +109,24 @@ ul {
 }
 
 a {
-  color: #282929;
+  color: var(--primary-font-color);
+  text-decoration: none;
 }
 
 input[type="checkbox"] {
   margin: 0 4px 0 24px;
-  accent-color: #a8a9a9;
+  accent-color: var(--bg);
   width: 20px;
   height: 20px;
-  outline: 2px solid #c07b74;
-  outline-offset: -1px;
+  outline: 2px solid var(--alt-outline);
+  outline-offset: -3px;
 }
 
-.fa,
-.far,
-.fas,
-.fab,
-.tim-icons {
+.fa {
   font-size: 2em;
+}
+
+
+.link {
+  text-decoration: underline;
 }

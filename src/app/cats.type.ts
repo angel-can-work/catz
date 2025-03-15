@@ -9,6 +9,7 @@ export type CatBreedDetails = {
   temperament: string;
   wikipedia_url: string;
   origin: string;
+  vca_url: string;
 }
 
 export type Filter = {

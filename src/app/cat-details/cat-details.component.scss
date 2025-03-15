@@ -4,7 +4,7 @@
 .breadcrumbs{
   position: sticky;
   top: 0;
-  background-color: #dfdfdf;
+  background-color: var(--bg);
   padding: 20px 0;
 }
 
@@ -21,7 +21,7 @@
 
 .cat-details-main {
   display: flex;
-  column-gap: 30px;
+  column-gap: 60px;
   row-gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
@@ -39,7 +39,7 @@
 
 .border {
   position: relative;
-  border-bottom: 1px solid #282929;
+  border-bottom: 2px solid var(--primary-font-color);
   width: 70%;
   margin: 40px auto;
 }
@@ -47,7 +47,7 @@
 .playful-cat {
   box-shadow: none;
   position: absolute;
-  top: -71px;
+  top: -70px;
   right: 0;
   width: 140px;
 }
