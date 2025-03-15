@@ -8,7 +8,7 @@
         'header-search header-search';
     position: sticky;
     top: 0;
-    background: #d4d4d4;
+    background: #dfdfdf;
     margin: 0 -20px;
     padding: 20px;
     border-bottom: 1px solid black;
@@ -52,6 +52,7 @@
         grid-area: header-search;
         padding: 8px;
         border: 1px solid #282929;
+        border-radius: 4px;
 
         &:focus-visible {
             border: 2px solid #282929;
@@ -114,7 +115,7 @@
           text-align: center;
           width: fit-content;
           border-radius: 4px;
-          box-shadow: 0 4px 8px #ccc;
+          box-shadow: 0 4px 8px #888;
         }
 
         .hypo-tag {
@@ -124,18 +125,20 @@
 
         .rare-tag {
             // background-color: styles.$cinnamon;
-            background-color: #6c92a0;
+            // background-color: #6c92a0;
+            background-color: #587783;
         }
 
         .hair-tag {
             // background-color: styles.$dark-purple;
-            background-color: #c07b74;
+            // background-color: #c07b74;
+            background-color: #b1564d;
         }
 
         .hypo-tag,
         .rare-tag,
         .hair-tag {
-            padding: 4px;
+            padding: 4px 8px;
             margin: 4px 0;
         }
 

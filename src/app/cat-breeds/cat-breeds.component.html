@@ -27,6 +27,7 @@
   <ng-container *ngIf="displayBreeds | searchFilter : searchTerm as results">
     <section class="cat-results">
       <div *ngFor="let breed of results" class="cat-card">
+        <!-- use safe url -->
         <img
           class="cat-image"
           [src]="breed.imageUrl"
