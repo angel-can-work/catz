@@ -1,0 +1,41 @@
+.top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 15px 6px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px #888;
+}
+
+.bottom {
+  position : fixed;
+  right: 40px;
+  padding: 10px 15px 6px;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px #888;
+  top: 310px;
+}
+
+
+@media screen and (max-width: 769px) {
+  .bottom {
+    right: 20px;
+    top: 340px;
+  }
+
+  .top {
+    right: 20px;
+  }
+}
+
+
+  @media screen and (max-width: 480px) {
+  .bottom {
+    right: 16px;
+    top: 420px;
+  }
+
+  .top {
+    // right: 16px;
+  }
+}

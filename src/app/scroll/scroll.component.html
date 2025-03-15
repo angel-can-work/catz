@@ -1,0 +1,11 @@
+<input type="checkbox" name="autoscroll" class="checkbox" (click)="startScroll($event)">
+<label for="autoscroll">Autoscroll</label>
+
+<!-- icons -->
+<button *ngIf="enableScrollToTop" class="top" (click)="scrollToTop()">
+  <i class="fa fa-caret-up"></i>
+</button>
+
+<button *ngIf="enableScrollToBottom" class="bottom" (click)="scrollToBottom()">
+  <i class="fa fa-caret-down"></i>
+</button>

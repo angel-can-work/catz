@@ -3,12 +3,27 @@
     <li>{{catDetails.name}}</li>
 </ul>
 <main *ngIf="!!catDetailsLoaded" class="cat-details-main">
-    <img class="cat-details-img" [src]="catDetails.image" [alt]="catDetails.name + ' Image'" onerror="this.src = '../../assets/images/Cat.png'">
+  <section class="img-container">
+    <img class="cat-details-img" [src]="catDetails.imageUrl | safe: 'url'" [alt]="catDetails.name + ' Image'" onerror="this.src = '../../assets/images/Cat.png'" loading="lazy">
+  </section>
     <section class="cat-details-info">
-        <h1 class="cat-details-name">{{catDetails.name}}</h1>
+        <h2 class="cat-details-name">{{catDetails.name}}</h2>
+        <p class="origin">
+          <span class="key">Origin:</span> {{catDetails.origin}}
+        </p>
+        <p class="cat-details-temperament">
+          <span class="key">Temperament:</span> {{catDetails.temperament}}
+        </p>
         <p class="cat-details-description">{{catDetails.description}}</p>
-        <p class="cat-details-temperament">Temperament: {{catDetails.temperament}}</p>
-        <a *ngIf="catDetails.wikipedia_url" [href]="catDetails.wikipedia_url" class="cat-details-link" target="_blank">Wikipedia, please!</a>
+
+        <a *ngIf="catDetails.wikipedia_url" [href]="catDetails.wikipedia_url" class="cat-details-link" target="_blank">
+          <p>Wikipedia, please!</p>
+        </a>
+        <a [href]="searchUrl" class="buy-link" target="_blank">
+          <p>Want to care for one?</p>
+        </a>
     </section>
 </main>
-<div class="border"></div>
+<div class="border">
+  <img src="/assets/images/playful-cat.png" alt="Playful cat" class="playful-cat" loading="lazy">
+</div>

@@ -1,9 +1,11 @@
 <main *ngIf="!!catBreedsLoaded" class="main">
+
   <section class="header">
     <section class="header-filters">
+      <img src="/assets/images/hiding-cat.png" alt="" class="header-image">
       <span *ngFor="let filter of filters">
         <input
-          class="filter"
+          class="filter checkbox"
           [id]="filter.name"
           type="checkbox"
           [(ngModel)]="filter.isSelected"
@@ -21,39 +23,45 @@
       class="header-search"
       [(ngModel)]="searchTerm"
     />
+    <section class="autoscroll">
+      <app-scroll [enableScrollToBottom]="false"></app-scroll>
+    </section>
+
   </section>
 
   <!-- Add loading image -->
   <ng-container *ngIf="displayBreeds | searchFilter : searchTerm as results">
     <section class="cat-results">
       <div *ngFor="let breed of results" class="cat-card">
-        <!-- use safe url -->
         <img
           class="cat-image"
-          [src]="breed.imageUrl"
+          [src]="breed.imageUrl | safe : 'url'"
           alt=""
           onerror="this.src = '../../assets/images/Cat.png'"
           loading="lazy"
         />
+        <div class="border"></div>
         <section class="name-and-link">
-          <h2>{{ breed.name }}</h2>
-          <a
-            *ngIf="breed.privacy === 'Public'; else privacyBlock"
-            [routerLink]="['/details/' + breed.id]"
-            >Details</a
-          >
-          <ng-template #privacyBlock>Details Unavailable</ng-template>
+          <h3>{{ breed.name }}</h3>
+          <a [routerLink]="['/details/' + breed.id]">Details</a>
           <section class="tags">
-            <p class="filter-tag hypo-tag" *ngIf="!!breed.hypoallergenic">
-              Hypo-allgergenic
+            <p
+              *ngFor="let filter of breed.filters"
+              class="filter-tag"
+              [ngClass]="filter.class"
+            >
+              {{ filter.name }}
             </p>
-            <p class="filter-tag rare-tag" *ngIf="!!breed.rare">Rare</p>
-            <p class="filter-tag hair-tag" *ngIf="!!breed.hairless">Hairless</p>
           </section>
         </section>
       </div>
       <p *ngIf="results.length < 1">No Results</p>
     </section>
   </ng-container>
-  <!-- Add message for if breeds do not load -->
+  <section *ngIf="!displayBreeds" class="error-group">
+    <h2 class="error-message">
+      How embarrassing. I promised cats, but no cats.
+    </h2>
+    <p>Not able to access the cat service at this time.</p>
+  </section>
 </main>

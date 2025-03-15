@@ -1,4 +1,4 @@
-import { SearchFilterPipe } from './search-filter.pipe';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 xdescribe('SearchFilterPipe', () => {
   const pipe = new SearchFilterPipe();

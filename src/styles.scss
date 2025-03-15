@@ -1,68 +1,116 @@
 // Global Styles
+@import '@fortawesome/fontawesome-free/css/fontawesome.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+:root {
+  // colors
+  --blue: #5f7f8c;
+  --chromophobic-black: #282929;
+}
 
 $dark-purple: #5c3c64;
 $gold: #ffce95;
 $cinnamon: #904617;
 $apple: #9d2511;
 $lavendar: rgb(182, 193, 233);
+$blue: #5f7f8c;
+
+:root {
+  --primary-font-color: var(--chromophobic-black);
+  --accent-font-color: var(--blue);
+}
 
 * {
-    font-size: 1em;
-    font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
 
-    &:focus-visible {
-        outline: 2px solid #6c92a0;
-    }
+  &:focus-visible {
+    outline: 2px solid #6c92a0;
+  }
 }
 
 body {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #dfdfdf;
-    color: #282929;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #dfdfdf;
+  color: var(--primary-font-color);
 }
 
-h1 {
-    font-size: 40px;
+h1,
+h2,
+h3 {
+  margin: unset;
+  font-weight: 600;
 }
 
 h1,
 h2 {
-    margin: unset;
-    font-weight: 600;
+  margin: unset;
+  font-weight: 600;
+  background-color: #666666;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(255, 255, 255, 0.5) 0px 3px 3px;
+}
 
-    color: #5f7f8c;
+h1 {
+  font-size: 50px;
 }
 
 h2 {
+  font-size: 30px;
+}
+
+h3 {
   color: #282929;
+  color: var(--primary-font-color);
+  text-shadow: 0 1px 3px #888;
+  font-size: 20px;
 }
 
 p {
-    line-height: 1.5em;
+  line-height: 1.6em;
 }
 
 img {
-    height: fit-content;
-    margin: 0 16px;
-    box-shadow: 0 4px 8px #6c92a0;
+  margin: 0 16px;
+  box-shadow: 0 4px 8px #6c92a0;
 }
 
 button,
 input,
 ul {
-    margin: 16px 0;
-    border: unset;
-    padding: unset;
-    border-radius: 2px;
+  margin: 16px 0;
+  border: unset;
+  padding: unset;
+  border-radius: 2px;
 
-    &:focus-visible {
-        border: unset;
-        outline: unset;
-    }
+  &:focus-visible {
+    border: unset;
+    outline: unset;
+  }
 }
 
 a {
   color: #282929;
+}
+
+input[type="checkbox"] {
+  margin: 0 4px 0 24px;
+  accent-color: #a8a9a9;
+  width: 20px;
+  height: 20px;
+  outline: 2px solid #c07b74;
+  outline-offset: -1px;
+}
+
+.fa,
+.far,
+.fas,
+.fab,
+.tim-icons {
+  font-size: 2em;
 }
