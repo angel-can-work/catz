@@ -42,17 +42,17 @@
           <div class="border"></div>
           <section class="name-and-link">
             <h3>{{ breed.name }}</h3>
-            <section class="tags">
-              <p
-                *ngFor="let filter of breed.filters"
-                class="filter-tag"
-                [ngClass]="filter.class"
-              >
-                {{ filter.name }}
-              </p>
-            </section>
           </section>
         </a>
+        <section class="tags">
+          <p
+            *ngFor="let filter of breed.filters"
+            class="filter-tag"
+            [ngClass]="filter.class"
+          >
+            {{ filter.name }}
+          </p>
+        </section>
       </div>
       <p *ngIf="results.length < 1">No Results</p>
     </section>
