@@ -2,14 +2,12 @@ export type CatBreedDetails = {
   id: string,
   name: string,
   imageUrl: string,
-  hypoallergenic: boolean,
-  rare: boolean,
-  hairless: boolean;
   description: string;
   temperament: string;
   wikipedia_url: string;
   origin: string;
   vca_url: string;
+  filters: Filter[];
 }
 
 export type Filter = {
